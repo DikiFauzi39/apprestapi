@@ -11,4 +11,10 @@ module.exports = function (app) {
 
     app.route('/tampil/:id')
     .get(jsonku.tampilbyid);
-}
+
+    app.route('/tambah')
+    .post(jsonku.tambahdata);
+
+    app.route('/ubah')
+    .put(jsonku.editdata);
+}   
