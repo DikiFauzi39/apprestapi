@@ -22,7 +22,7 @@ exports.tampilsemuamahasiswa = function (req,res) {
 // menampilkan semua data by id
 exports.tampilbyid = function (req,res) {
     let id = req.params.id;
-    conncection.query("Select * from mahasiswa where id_mahasiswa = ?",{id}, function (error,rows,fields){
+    conncection.query('Select * from mahasiswa where id_mahasiswa = ?',[id], function (error,rows,fields){
         if(error){
             console.log(error);
         }else{
