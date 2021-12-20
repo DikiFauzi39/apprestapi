@@ -59,5 +59,19 @@ exports.editdata = function(req,res){
         }else{
             response.ok("berhasil update",res);
         }
-    })
+    });
 }
+
+
+// hpaus
+exports.hapusdata = function (req,res){
+    var id = req.body.id_mahasiswa;
+
+    conncection.query('delete from mahasiswa where id_mahasiswa = ?',[id], function(error,rows,fields) {
+        if(error){
+            console.log(error);
+        }else{
+            response.ok("berhasil delete",res);
+        }
+    });
+};
