@@ -12,11 +12,11 @@ exports.resgistrasi =  function(req,res){
         username : req.body.username,
         email : req.body.email,
         password : md5(req.body.password),
-        role = req.body.role,
+        role : req.body.role,
         tanggal_daftar: new Date() 
     }
 
-    var query = "select email from ?? where ?? ";
+    var query = "select email from ?? where ??=? ";
     var table = ["user","email",post.email];
 
     query = mysql.format(query,table);
@@ -26,7 +26,7 @@ exports.resgistrasi =  function(req,res){
             console.log(error);
         }else{
             if(rows.length == 0 ){
-                var query = "insert into ?? set ??";
+                var query = "insert into ?? set ?";
                 var table = ["user"];
                 query = mysql.format(query,table);
                 connection.query(query,post,function(error,rows){
